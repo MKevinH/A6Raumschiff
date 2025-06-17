@@ -42,6 +42,9 @@ public class Volk {
     public void setName(String name) {
         this.name = name;
     }
+    public ArrayList<Krieger> getKrieger() {
+        return mitglieder;
+    }
 
     //4.2.3
     public int getMacht(){

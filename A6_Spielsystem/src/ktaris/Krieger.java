@@ -14,6 +14,8 @@ public class Krieger {
         this.name = name;
         this.alter = alter;
         this.macht = 1;
+        berechneMacht();
+
 
     }
     public String getName() {
@@ -29,7 +31,12 @@ public class Krieger {
         this.alter = alter;
     }
     public int getMacht() {
+        berechneMacht();
         return macht;
+
+    }
+    public void setMacht(int macht) {
+        this.macht = macht;
     }
 
     /**
@@ -40,6 +47,8 @@ public class Krieger {
         for(Gegenstand g : aGegenstand){
             this.macht += g.getFaktor();
         }
+
+
     }
 
     public void addGegenstand(Gegenstand g){

@@ -81,7 +81,7 @@ public class Spielsystem {
         }
         else if (zahl >= 11 && zahl <= 21) {
             int heilung = 10;
-            leben = Math.min(100, leben + heilung);
+            leben += heilung;
             System.out.println("Du ruhst dich aus und regenerierst " + heilung + " Leben.");
         }
         else if (zahl >= 22 && zahl <= 30) {
@@ -107,7 +107,7 @@ public class Spielsystem {
         }
         else if (zahl >= 52 && zahl <= 62) {
             int heilung = 30;
-            leben = Math.min(100, leben + heilung);
+            leben += heilung;
             System.out.println("Du findest ein Camp und heilst " + heilung + " Leben durch Bandagen.");
         }
         else if (zahl >= 63 && zahl <= 80) {
