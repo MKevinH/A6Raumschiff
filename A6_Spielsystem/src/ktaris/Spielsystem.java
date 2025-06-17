@@ -27,6 +27,7 @@ public class Spielsystem {
         this.alleKrieger.remove(spielerKrieger);
     }
 
+
     public void spielStart() {
         System.out.println("Willkommen " + aktuellerKrieger.getName() + "! Das Spiel beginnt!");
         System.out.println("Deine aktuelle Macht: " + aktuellerKrieger.getMacht());
