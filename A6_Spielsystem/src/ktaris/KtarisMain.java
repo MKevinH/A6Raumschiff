@@ -95,7 +95,7 @@ public class KtarisMain {
         //tystae verliert seine Quantenkannone
         tystae.removeGegenstand(g3);
         //Allana gibt tystae seine neue Quantkannone
-        allana.treffen(tystae);
+        //allana.treffen(tystae);
 
         System.out.println("katarus hat Macht: " + katarus.getMacht());
         //Zufügen Bria zu Arsprin und als chef setzen
@@ -132,8 +132,8 @@ public class KtarisMain {
         System.out.println(allana);
         System.out.println(bria);
 
-
-        Spielsystem spiel = new Spielsystem(allana, katarus, arpasian);
+        // spiel funktion und übergabe werte
+        Spielsystem spiel = new Spielsystem(katarus, arpasian);
         spiel.spielStart();
 
     }

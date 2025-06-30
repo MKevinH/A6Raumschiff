@@ -105,7 +105,7 @@ public class Krieger {
         } while (wahl != 1 && wahl != 2);
 
         switch(wahl) {
-            case 1:
+            case 1: // Verschenken
                 System.out.println("Du hast gewählt zu verschenken.");
 
                 if (aGegenstand.isEmpty()) {
@@ -128,13 +128,16 @@ public class Krieger {
                 } while (auswahl < 1 || auswahl > aGegenstand.size());
 
                 Gegenstand geschenkt = aGegenstand.get(auswahl - 1);
-
-                this.handeln(geschenkt);
-                k.handeln(geschenkt);
+                
+                // Erst vom aktuellen Krieger entfernen
+                removeGegenstand(geschenkt);
+                // Dann dem anderen Krieger hinzufügen
+                k.addGegenstand(geschenkt);
 
                 System.out.println("Du hast " + geschenkt.getTyp() + " an " + k.getName() + " verschenkt.");
                 break;
-            case 2:
+
+            case 2: // Erhalten
                 System.out.println("Du hast gewählt zu erhalten.");
 
                 if (k.aGegenstand.isEmpty()) {
@@ -158,18 +161,24 @@ public class Krieger {
                 } while (auswahl2 < 1 || auswahl2 > k.aGegenstand.size());
 
                 Gegenstand erhalten = k.aGegenstand.get(auswahl2 - 1);
-
-                k.handeln(erhalten);
-                this.handeln(erhalten);
+                
+                // Erst vom anderen Krieger entfernen
+                k.removeGegenstand(erhalten);
+                // Dann dem aktuellen Krieger hinzufügen
+                addGegenstand(erhalten);
 
                 System.out.println("Du hast " + erhalten.getTyp() + " von " + k.getName() + " erhalten.");
                 break;
+
             default:
                 System.out.println("Ungültige Auswahl!");
                 break;
         }
     }
 
+    public ArrayList<Gegenstand> getGegenstaende() {
+        return new ArrayList<>(aGegenstand); // Gibt eine Kopie zurück, um die Original-Liste zu schützen
+    }
 
 
 
