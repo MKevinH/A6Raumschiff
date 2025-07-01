@@ -20,11 +20,11 @@ public class Spielsystem {
         this.leben = 100;
         this.runde = 1;
         
-        // Füge alle Krieger aus beiden Völkern zur Liste hinzu
+        // alle krieger ins Spiel einfügen
         alleKrieger.addAll(v1.getKrieger());
         alleKrieger.addAll(v2.getKrieger());
         
-        // Sammle alle verfügbaren Waffen und Tiere
+        // Waffen und Tiere ins Spiel einfügen
         verfuegbareWaffen = new ArrayList<>();
         verfuegbareTiere = new ArrayList<>();
         
@@ -87,7 +87,7 @@ public class Spielsystem {
 
         spielerKrieger = new Krieger(name, alter);
 
-        // Basis-Ausrüstung für den Spieler
+        // start waffe wählen
         System.out.println("\nWählen Sie Ihre Startwaffe:");
         for (int i = 0; i < verfuegbareWaffen.size(); i++) {
             System.out.println("[" + (i+1) + "] " + verfuegbareWaffen.get(i).getTyp() + 
@@ -242,13 +242,13 @@ public class Spielsystem {
         else if (zahl >= 81 && zahl <= 99) {
             System.out.println("Nichts Besonderes passiert.");
         }
-        // bei d100 gewinnt man
+        // bei d100 gewinnt man und spiel wird beendet
         else if (zahl == 100) {
             System.out.println("Glückwunsch! Du hast gewonnen!");
             System.out.println("=== SPIEL GEWONNEN ===");
             leben = -1;
         }
-        // wenn man stirbt verliert man
+        // wenn man 0 leben hat wird das spiel beendet
         if (leben <= 0) {
             System.out.println("GAME OVER - Keine Lebenspunkte mehr übrig!");
             leben = 0;
